@@ -1,64 +1,64 @@
-/* .navbar{
-  background-color: #4578;
-}
-.navbar a{
-  color: white;
-}
-.bg{
-  background-image: url(../img/port.jpg);
-  height: auto;;
-  image-resolution: from-image;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: ;
+#fixed{
+    border: 1px solid #894;
+    text-align: center;
 
+}
+#delete{
+  background-color:  red !important;
+}
+img{
+  max-width: 100%;
+  display:block;
+  height: 400px;
+}
+#bac{
+  background-image: url(../img/top.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-}
-.overlay{
-  background-color: rgba(0,0,0,0.5);
-  z-index: 99;
-  height: auto;
-}
-h1{
+  background-attachment: fixed;
   text-align: center;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  background-color: rgba(0,0,1,0.9) !important;
+  position: relative;
+  top:-5px;
+
+}
+#h1{
+  text-decoration: underline;
+}
+pre{
+  background-color: #6478;
+}
+.bts:hover{
+  color:black;
+}
+.comments{
+  margin: 15px;
+}
+#tutor{
   text-transform: capitalize;
-}
-h3{
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-transform: capitalize;
-  margin: 4px;
-}
-hr{
-  background-color: #4578;
-  border-width: thick;
-}
-span{
-  color: white;
+  color: #395D8C;
   text-align: center;
 }
-#typed,#code{
-  display: inline-block;
-}
-.typed-cursor{
-  font-size: 30px;
-  transition: 400ms;
-  color: red;
-}
-.about p{
-  font-size: 18px;
-}
-#next{
-  float: right;
-}
-.skills,.hide{
+.del{
   display: none;
 }
-#prof{
-  height: 250px;
-  width: 300px;
-  margin: auto;
-} */
+.profiles{
+  display: none;
+}
+.com{
+  display: none;
+}
+#login{
+  max-width: 100%;
+  display:block;
+  height: 200px;
+}
+#jumbo h1{
+  color: white;
+}
+#loginn{
+  
+}
