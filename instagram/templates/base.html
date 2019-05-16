@@ -1,0 +1,31 @@
+{%load bootstrap4%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+  </head>
+  {%block styles%}
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/mdb.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+  {%endblock%}
+  <body>
+    {%block content%}
+
+    <!-- code goes here-->
+    {%endblock%}
+
+
+
+
+
+
+    {%block scripts%}
+      <script type="{static 'js/jquery-3.3.1.min.js'}"></script>
+      <script type="{static 'js/bootstrap.min.js'}"></script>
+      <script type="{static 'js/mdb.min.js'}"></script>
+      <script type="{static 'js/popper.min.js'}"></script>
+    {%endblock%}
+  </body>
+</html>

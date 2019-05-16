@@ -1,0 +1,64 @@
+/* .navbar{
+  background-color: #4578;
+}
+.navbar a{
+  color: white;
+}
+.bg{
+  background-image: url(../img/port.jpg);
+  height: auto;;
+  image-resolution: from-image;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: ;
+
+  background-size: cover;
+}
+.overlay{
+  background-color: rgba(0,0,0,0.5);
+  z-index: 99;
+  height: auto;
+}
+h1{
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+}
+h3{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 4px;
+}
+hr{
+  background-color: #4578;
+  border-width: thick;
+}
+span{
+  color: white;
+  text-align: center;
+}
+#typed,#code{
+  display: inline-block;
+}
+.typed-cursor{
+  font-size: 30px;
+  transition: 400ms;
+  color: red;
+}
+.about p{
+  font-size: 18px;
+}
+#next{
+  float: right;
+}
+.skills,.hide{
+  display: none;
+}
+#prof{
+  height: 250px;
+  width: 300px;
+  margin: auto;
+} */
