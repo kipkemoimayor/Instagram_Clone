@@ -6,3 +6,6 @@ from django.http import HttpResponse
 def index(request):
 
     return render(request,"index.html")
+
+def stories(request):
+    return render(request,'stories.html')
