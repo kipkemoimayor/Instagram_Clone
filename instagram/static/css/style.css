@@ -1,64 +1,58 @@
-#fixed{
-    border: 1px solid #894;
-    text-align: center;
 
+@media screen only and (min-width:1000px) {
+
+  #insta{
+    position: fixed;
+
+  }
 }
-#delete{
-  background-color:  red !important;
+
+@media screen  and (max-width:367px) {
+
+  #insta{
+    display: none;
+
+  }
 }
-img{
-  max-width: 100%;
-  display:block;
-  height: 400px;
+
+@media screen only and (min-width:1000px) {
+
+  .contain{
+    position: relative;
+    top: 30px !important;
+
+  }
 }
-#bac{
-  background-image: url(../img/top.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  text-align: center;
-  color: white;
-  font-weight: 400;
-  background-color: rgba(0,0,1,0.9) !important;
+.img{
+  position: absolute;
+  top:30px;
+  height: 500px;
+  width:600px;
+}
+.login{
+  border: 1px solid black;
   position: relative;
-  top:-5px;
+  top: 90px;
+  padding: 30px;
+  background-color: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.1);
 
 }
-#h1{
-  text-decoration: underline;
-}
-pre{
-  background-color: #6478;
-}
-.bts:hover{
-  color:black;
-}
-.comments{
-  margin: 15px;
-}
-#tutor{
-  text-transform: capitalize;
-  color: #395D8C;
+.login h1{
   text-align: center;
 }
-.del{
-  display: none;
+.login form{
+  width: 80%;
+  margin: auto;
 }
-.profiles{
-  display: none;
+.login button{
+  padding: 10px !important;
+  width: 80%;
+  margin: auto;
+  margin: 5px;
+
+
 }
-.com{
-  display: none;
-}
-#login{
-  max-width: 100%;
-  display:block;
-  height: 200px;
-}
-#jumbo h1{
-  color: white;
-}
-#loginn{
-  
+.bt{
+    text-align:  center;
 }
