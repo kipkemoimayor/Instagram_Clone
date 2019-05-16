@@ -29,7 +29,7 @@
   height: 500px;
   width:600px;
 }
-.login{
+.login {
   border: 1px solid black;
   position: relative;
   top: 90px;
@@ -40,14 +40,22 @@
 }
 .login h1{
   text-align: center;
+  font-weight: 520;
+  font-size: 55px;
+
+  /* font-family: 'Satisfy', cursive; */
+  /* font-family: 'Lobster Two', cursive;
+  font-family: 'Playball', cursive;*/
+  font-family: 'Cookie', cursive;
+
 }
 .login form{
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 .login button{
   padding: 10px !important;
-  width: 80%;
+  width: 95%;
   margin: auto;
   margin: 5px;
 
@@ -55,4 +63,7 @@
 }
 .bt{
     text-align:  center;
+}
+.open ul>li{
+  padding: 40px !important;
 }
