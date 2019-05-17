@@ -107,8 +107,41 @@
   font-weight: bold;
 
 }
+.color{
+  height: 2px !important;
+  color:red;
+}
 .muted{
   text-transform: uppercase;
   color: rgba(0,0,0,0.5);
   font-size: 13px;
+  box-shadow: none;
+}
+#nav{
+  z-index: 999;
+  height:12.5vh;
+  box-shadow:none;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  background-color: #FFFFFF;
+  z-index: 18885;
+}
+#icons{
+  font-weight: 400;
+  font-size: 35px;
+  font-family: 'Cookie', cursive;
+  color: black;
+
+}
+.fa-instagram{
+  margin: 5px;
+}
+.space{
+  margin: 8px;
+}
+.itens,.iten{
+  padding: 20px;
+  margin: 10px;
+}
+#searchUp{
+  height: 28px;
 }
