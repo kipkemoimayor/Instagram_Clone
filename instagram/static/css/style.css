@@ -21,6 +21,7 @@
     top: 30px !important;
 
   }
+
 }
 .img{
   position: absolute;
@@ -186,4 +187,13 @@
 
 #comment{
 
+}
+.stay{
+  height: 600px;
+  overflow-x: hidden;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
