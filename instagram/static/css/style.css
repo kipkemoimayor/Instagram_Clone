@@ -145,3 +145,45 @@
 #searchUp{
   height: 28px;
 }
+#card{
+  border: 1px solid rgba(0,0,0,0.2) !important;
+  box-shadow: none;
+  border-bottom: none !important;
+}
+.card-header,.card-footer{
+  background-color: #FFFFFF !important;
+}
+.footer{
+    border-bottom: none !important;
+}
+.rounded-circle{
+  border: 1px solid red;
+}
+#comment{
+  border-top: none !important;
+  border-radius: 0  0 5px 5px !important;
+  padding: 25px;
+}
+@media screen  and (min-width:1000px) {
+  #post{
+    padding: 10px !important;
+    position: relative;
+    left:570px;
+    top: -47px;
+    opacity: 0.6;
+  }
+}
+@media screen  and (max-width:360px) {
+  #post{
+    display: none;
+    padding: 10px !important;
+    position: relative;
+    left:250px;
+    top: -47px;
+    opacity: 0.6;
+  }
+}
+
+#comment{
+
+}
