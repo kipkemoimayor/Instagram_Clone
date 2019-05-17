@@ -15,29 +15,26 @@
 
 
          <div class="login">
-           <form class="form-group" action="index.html" method="post">
+           <form class="form-group" action="" method="post">
              <h1>Instagram</h1>
-             <div class="form-group">
-               <label for="">Email address</label>
-               <input required placeholder="Email adress" class="form-control" type="text" name="" value="">
-                </div>
-               <label for="">Password</label>
-               <input required class="form-control" type="password" name="" value="">
+
                <div class="bt">
-                 <button disabled class="btn btn-info sm" type="button" name="button">Log in</button>
+                 <a href="/accounts/login/"><button  class="btn btn-info sm" type="button" name="button">Log in</button></a>
 
                </div>
                <br>
 
              <h6 class="animated fadeIn">OR</h6>
-             <a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a>
+             <p style="text-align:center"><a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a></p>
+             <img src="" alt="">
+             <br><br><br><br>
            </form>
 
          </div>
 
          <div class="open">
            <ul class="list-group">
-             <li class="list-group-item">Dont have an account? <a href="#">Sign up here</a></li>
+             <li class="list-group-item">Dont have an account? <a href="/accounts/register/">Sign up here</a></li>
 
            </ul>
 

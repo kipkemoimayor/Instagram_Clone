@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%}{%load bootstrap4%}
 {%load static%}
 {{block.supper}}
 {%block content%}
@@ -15,14 +15,12 @@
 
 
          <div class="login">
-           <form class="form-group" action="index.html" method="post">
+           <form class="form-group" action="/accounts/login/" method="post">
              <h1>Instagram</h1>
-             <div class="form-group">
-               <label for="">Email address</label>
-               <input required placeholder="Email adress" class="form-control" type="text" name="" value="">
-                </div>
-               <label for="">Password</label>
-               <input required class="form-control" type="password" name="" value="">
+             {%csrf_token%}
+             {%bootstrap_form form%}
+
+
                <div class="bt">
                  <button disabled class="btn btn-info sm" type="button" name="button">Log in</button>
 
@@ -30,14 +28,14 @@
                <br>
 
              <h6 class="animated fadeIn">OR</h6>
-             <a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a>
+            <p style="text-align:center"><a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a></p> 
            </form>
 
          </div>
 
          <div class="open">
            <ul class="list-group">
-             <li class="list-group-item">Dont have an account? <a href="#">Sign up here</a></li>
+             <li class="list-group-item">Dont have an account? <a href="/accounts/login/">Sign up here</a></li>
 
            </ul>
 
@@ -51,8 +49,8 @@
 
          <div class="images">
            <p class="">get the app</p>
-           <img class="imga" src="static/img/ios.png" alt="">
-           <img class="imga" src="static/img/droid.png" alt="">
+           <img class="imga" src="/static/img/ios.png" alt="">
+           <img class="imga" src="/static/img/droid.png" alt="">
 
          </div>
 
