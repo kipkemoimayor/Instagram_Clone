@@ -200,3 +200,36 @@
 ::-webkit-scrollbar {
     display: none;
 }
+.idea a{
+  padding: 20px;
+  font-size: 25px;
+
+}
+.idea button{
+  background-color: #FFFFFF !important;
+  box-shadow: none;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.fa-cog{
+  color: black;
+  padding: 20px;
+  font-size: 25px;
+}
+.info{
+  background-color: rgba(0,0,0,0.3);
+
+}
+.tags a{
+  padding: 20px;
+  font-weight: 400;
+  color: black;
+
+}
+.tags a:active{
+  text-decoration: underline;
+}
+.image{
+  height: 250px;
+  width:250px;
+}
