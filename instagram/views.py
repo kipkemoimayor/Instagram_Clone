@@ -10,3 +10,7 @@ def index(request):
 
 def stories(request):
     return render(request,'feeds.html')
+
+
+def profile(request):
+    return render(request,"profile.html")
