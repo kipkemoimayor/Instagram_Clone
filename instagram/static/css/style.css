@@ -233,3 +233,9 @@
   height: 250px;
   width:250px;
 }
+.ref{
+  color: black;
+}
+.ref:active{
+  text-decoration: none;
+}
