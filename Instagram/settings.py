@@ -19,6 +19,7 @@ SECRET_KEY=config("SECRET_KEY")
 DEBUG=config("DEBUG",default=False,cast=bool)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,6 +36,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #login redirect
 
 LOGIN_REDIRECT_URL='/stories'
+REGISTER_REDIRECT_URL='/stories'
 # Application definition
 
 INSTALLED_APPS = [

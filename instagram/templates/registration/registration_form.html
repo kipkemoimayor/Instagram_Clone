@@ -15,19 +15,19 @@
 
 
          <div class="login">
-           <form class="form-group" action="/accounts/register" method="post">
+           <form class="form-group" action="/accounts/register/" method="post">
              {%csrf_token%}
              <h1>Instagram</h1>
              {%bootstrap_form form%}
                <div class="bt">
-                 <button disabled class="btn btn-info sm" type="button" name="button">Register</button>
+                 <button  class="btn btn-info sm" type="submit" name="button">Register</button>
 
                </div>
                <input type="hidden" name="text" value="{{next}}">
                <br>
 
              <h6 class="animated fadeIn">OR</h6>
-            <p style="text-align:center"><a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a></p> 
+            <p style="text-align:center"><a class="facebook" href="{%url 'stories'%}"><i class='fab fa-facebook'></i> Login in With Facebook</a></p>
            </form>
 
          </div>
