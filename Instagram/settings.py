@@ -32,7 +32,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #
 # ALLOWED_HOSTS = []
 
+#login redirect
 
+LOGIN_REDIRECT_URL='/stories'
 # Application definition
 
 INSTALLED_APPS = [
