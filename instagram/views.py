@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostImage,EditProfile
+from .forms import PostImage,EditProfile,UpdateProfile
 from .models import Image,Profile
 
 # Create your views here.
@@ -23,10 +23,13 @@ def profile(request):
     try:
         current_user=request.user.id
         profile_photos=Image.objects.filter(userId=current_user)
+        profile_image=Profile.objects.filter(userId=current_user).all()
+        profile=profile_image.reverse()[0:1]
+
     except Exception as e:
         raise Http404()
 
-    return render(request,"profile.html",{'profile':profile_photos})
+    return render(request,"profile.html",{'profile':profile_photos,"pic":profile})
 
 @login_required(login_url='/accounts/login/')
 def uploads(request):
@@ -47,12 +50,33 @@ def uploads(request):
     return render(request,"upload.html",{"title":title,"form":form})
 @login_required(login_url='/accounts/login/')
 def edit(request):
-    if request.method=='POST':
-        form=EditProfile(request.POST,request.FILES)
-        if form.is_valid():
-            profile=form.save(commit=False)
-            profile.save()
-        return redirect("profile")
+    current_user_id=request.user.id
+    profile=Profile.objects.filter(userId=current_user_id)
+    if len(profile)<1:
+
+        if request.method=='POST':
+            form=EditProfile(request.POST,request.FILES)
+            if form.is_valid():
+                profile=form.save(commit=False)
+                profile.userId=current_user_id
+                profile.save()
+            return redirect("profile")
+        else:
+            form=EditProfile()
+            return render(request,"edit.html",{"form":form})
     else:
-        form=EditProfile()
-    return render(request,"edit.html",{"form":form})
+        if request.method=='POST':
+            form=EditProfile(request.POST,request.FILES )
+            if form.is_valid():
+                profile=form.save(commit=False)
+                bio=form.cleaned_data['bio']
+                pic=form.cleaned_data['pic']
+                update=Profile.objects.filter(userId=current_user_id).update(bio=bio,pic=pic)
+                profile.userId=current_user_id
+                profile.save(update)
+            return redirect("profile")
+        else:
+
+            form=EditProfile()
+
+            return render(request,"edit.html",{"form":form})

@@ -10,13 +10,21 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4">
-          <img class="img-fluid rounded-circle" src="/static/img/baby.jpg" alt="profile">
+          {%for i in pic%}
+          <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+          {%endfor%}
         </div>
         <div class="col-md-8">
           <div class=" idea">
+
             <a>{{user}}</a> <a href="{%url 'edit'%}"> <button type="button" class="btn btn-light">Edit Profile</button></a><a id="prompt"<i class="fas fa-cog fa-spin"></i></a>
 
           </div>
+          {%for i in pic%}
+          <p>This is is your status</p>
+          <p>{{i.bio}}</p>
+          {%endfor%}
+
 
 
 
