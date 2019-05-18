@@ -16,7 +16,7 @@ class Image(models.Model):
     image=models.ImageField(upload_to='images/',blank=True)
     name=models.CharField(max_length=30)
     caption=models.CharField(max_length=30)
-    
+
     likes=models.IntegerField(default=0)
     comments=models.CharField(max_length=200,default="")
     date=models.DateTimeField(auto_now_add=True)
@@ -25,3 +25,6 @@ class Image(models.Model):
 
     def __str__(self):
         return selfself.name
+
+    class Meta:
+        ordering=['image']

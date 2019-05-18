@@ -12,7 +12,11 @@ def index(request):
 
 @login_required(login_url="/accounts/login/")
 def stories(request):
-    return render(request,'feeds.html')
+    try:
+        images=Image.objects.all()
+    except Exception as e:
+        raise Http404()
+    return render(request,'feeds.html',{"images":images})
 
 @login_required(login_url="/accounts/login/")
 def profile(request):

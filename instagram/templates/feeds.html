@@ -60,13 +60,14 @@
        <div class="col-md-7 contain">
          <div class="stay">
            <!-- content here-->
+           {%for image in images%}
            <div id="card" class="card">
              <div class="card-header">
-              <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt=""> <span>mayor</span>
+              <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt=""> <span>{{image.user}}</span>
              </div>
              <div class="card-">
                <div class="">
-                 <img class="img-fluid" src="/static/img/baby.jpg" alt="">
+                 <img class="img-fluid" src="{{image.image.url}}" alt="">
                </div>
 
              </div>
@@ -83,29 +84,8 @@
              </div>
 
            </form>
-           <div id="card" class="card">
-             <div class="card-header">
-              <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt=""> <span>mayor</span>
-             </div>
-             <div class="card-">
-               <div class="">
-                 <img class="img-fluid" src="/static/img/baby.jpg" alt="">
-               </div>
+           {%endfor%}
 
-             </div>
-             <div class="card-footer">
-               comment
-             </div>
-
-
-           </div>
-           <form class="form-group" action="index.html" method="post">
-             <input placeholder="comment...." id="comment" class="form-control" type="text" name="" value="">
-             <div class="bttn">
-               <button id='post' class="btn btn-info"  type="submit" name="button">Post</button>
-             </div>
-
-           </form>
          </div>
 
 
