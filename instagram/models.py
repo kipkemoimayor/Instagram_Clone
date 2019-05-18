@@ -19,6 +19,7 @@ class Image(models.Model):
     likes=models.IntegerField()
     comments=models.CharField(max_length=200)
     date=models.DateTimeField(auto_now_add=True)
+    userId=models.IntegerField()
 
     def __str__(self):
         return selfself.name
