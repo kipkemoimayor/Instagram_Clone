@@ -32,7 +32,7 @@ def uploads(request):
             image.userId=current_user_id
             image.profile=current_user_id
             image.save()
-        return redirect("uploads")
+        return redirect("profile")
     else:
         form=PostImage()
     return render(request,"upload.html",{"title":title,"form":form})
