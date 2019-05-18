@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+{{block.supper}}
+{%load bootstrap4%}
+{%block content%}
+{%include 'navbar.html'%}
+
+<div  class="container prof">
+  <br><br>
+  <div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-fluid rounded-circle" src="/static/img/baby.jpg" alt="profile">
+        </div>
+        <div class="col-md-8">
+          <div class=" idea">
+            <a>{{user}}</a> <button type="button" class="btn btn-light">Edit Profile</button><a id="prompt"<i class="fas fa-cog fa-spin"></i></a>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+      <br>
+      <hr class="info">
+      <div class="tags">
+        <a href="#"><i class="far fa-newspaper"></i> Upload Pics for your friends to see</a>
+      </div>
+      <br>
+      <div class="uploads">
+        <form class="form-group" action="{%url 'edit'%}" method="post" enctype="multipart/form-data">
+          <h3>Instagram Edit Profile</h3>
+          {%csrf_token%}
+          {%bootstrap_form form%}
+
+          <button id="makeUpload" class="btn btn-info" type="submit" name="button">Upload</button>
+
+        </form>
+
+
+
+
+      </div>
+
+
+
+     </div>
+    <div class="col-md-1"> </div>
+
+  </div>
+
+
+
+</div>
+
+
+{%endblock%}

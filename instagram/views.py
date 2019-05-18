@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import PostImage
+from .forms import PostImage,EditProfile
 from .models import Image,Profile
 
 # Create your views here.
@@ -36,3 +36,14 @@ def uploads(request):
     else:
         form=PostImage()
     return render(request,"upload.html",{"title":title,"form":form})
+@login_required(login_url='/accounts/login/')
+def edit(request):
+    if request.method=='POST':
+        form=EditProfile(request.Post,request.FILES)
+        if form.is_valid():
+            profile=save(commit=False)
+            profile.save()
+        return redirect("profile")
+    else:
+        form=EditProfile()
+    return render(request,"edit.html",{"form":form})
