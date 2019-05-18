@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import PostImage
+from .models import Image,Profile
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ def stories(request):
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
+    profile_photos=Image.objects.filter()
     return render(request,"profile.html")
 
 @login_required(login_url='/accounts/login/')
@@ -28,6 +30,7 @@ def uploads(request):
             image=form.save(commit=False)
             image.user=current_user
             image.userId=current_user_id
+            image.profile=current_user_id
             image.save()
         return redirect("uploads")
     else:

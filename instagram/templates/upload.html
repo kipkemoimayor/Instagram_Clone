@@ -31,7 +31,7 @@
       </div>
       <br>
       <div class="uploads">
-        <form class="form-group" action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+        <form class="form-group" action="{%url 'uploads'%}" method="post" enctype="multipart/form-data">
           <h3>Instagram share photos</h3>
           {%csrf_token%}
           {%bootstrap_form form%}
