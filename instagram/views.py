@@ -3,6 +3,7 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostImage,EditProfile,UpdateProfile
 from .models import Image,Profile
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -13,10 +14,14 @@ def index(request):
 @login_required(login_url="/accounts/login/")
 def stories(request):
     try:
+        current_user=request.user.id
         images=Image.objects.all()
+        profile_image=Profile.objects.all()
+        profile=profile_image.reverse()[0:1]
+        users=User.objects.all()
     except Exception as e:
         raise Http404()
-    return render(request,'feeds.html',{"images":images})
+    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users})
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
