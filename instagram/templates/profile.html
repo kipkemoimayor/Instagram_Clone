@@ -28,15 +28,27 @@
       <div class="tags">
         <a href="#"><i class="far fa-newspaper"></i> Posts</a><a href="#"><i class="far fa-newspaper"></i> Saved</a>
       </div>
-      <div class="image">
-        <img class="img-fluid" src="/static/img/baby.jpg" alt="">
-
-
-      </div>
-
-
      </div>
     <div class="col-md-1"> </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <div class="row">
+
+        {%for photo in profile%}
+        <div class="col-md-6">
+          <div class="image">
+          <img class="img-fluid" src="{{photo.image.url}}" alt="">
+            </div>
+          </div>
+
+        {%endfor%}
+
+      </div>
+    </div>
+    <div class="col-md-1"></div>
 
   </div>
 

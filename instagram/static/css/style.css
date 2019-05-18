@@ -229,9 +229,9 @@
 .tags a:active{
   text-decoration: underline;
 }
-.image{
+.image img{
   height: 250px;
-  width:250px;
+  width:100%;
 }
 .ref{
   color: black;
@@ -267,3 +267,7 @@
   font-family: 'Cookie', cursive;
   color: black;
 }
+/* .flow{
+  display: flex;
+  flex-direction: column;
+} */

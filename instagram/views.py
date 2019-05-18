@@ -16,8 +16,13 @@ def stories(request):
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
-    profile_photos=Image.objects.filter()
-    return render(request,"profile.html")
+    try:
+        current_user=request.user.id
+        profile_photos=Image.objects.filter(userId=current_user)
+    except Exception as e:
+        raise Http404()
+
+    return render(request,"profile.html",{'profile':profile_photos})
 
 @login_required(login_url='/accounts/login/')
 def uploads(request):
