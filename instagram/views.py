@@ -15,3 +15,8 @@ def stories(request):
 @login_required(login_url="/accounts/login/")
 def profile(request):
     return render(request,"profile.html")
+
+@login_required(login_url='/accounts/login/')
+def uploads(request):
+    title='Upload'
+    return render(request,"upload.html",{"title":title})
