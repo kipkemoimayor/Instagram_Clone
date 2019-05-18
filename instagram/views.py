@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostImage,EditProfile
 from .models import Image,Profile
@@ -39,9 +39,9 @@ def uploads(request):
 @login_required(login_url='/accounts/login/')
 def edit(request):
     if request.method=='POST':
-        form=EditProfile(request.Post,request.FILES)
+        form=EditProfile(request.POST,request.FILES)
         if form.is_valid():
-            profile=save(commit=False)
+            profile=form.save(commit=False)
             profile.save()
         return redirect("profile")
     else:
