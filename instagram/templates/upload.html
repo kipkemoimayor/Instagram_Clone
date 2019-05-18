@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {{block.supper}}
+{%load bootstrap4%}
 {%block content%}
 {%include 'navbar.html'%}
 
@@ -26,11 +27,21 @@
       <br>
       <hr class="info">
       <div class="tags">
-        <a href="#"><i class="far fa-newspaper"></i> Upload Pics for your friends to see</a><a href="#">
+        <a href="#"><i class="far fa-newspaper"></i> Upload Pics for your friends to see</a>
       </div>
+      <br>
       <div class="uploads">
+        <form class="form-group" action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+          <h3>Instagram share photos</h3>
+          {%csrf_token%}
+          {%bootstrap_form form%}
 
-        
+          <button id="makeUpload" class="btn btn-info" type="submit" name="button">Upload</button>
+
+        </form>
+
+
+
 
       </div>
 

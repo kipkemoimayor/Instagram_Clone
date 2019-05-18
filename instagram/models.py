@@ -15,7 +15,7 @@ class Profile(models.Model):
 class Image(models.Model):
     image=models.ImageField(upload_to='images/',blank=True)
     name=models.CharField(max_length=30)
-    captiom=models.CharField(max_length=30)
+    caption=models.CharField(max_length=30)
     profile=models.ForeignKey(Profile)
     likes=models.IntegerField()
     comments=models.CharField(max_length=200)
