@@ -239,3 +239,12 @@
 .ref:active{
   text-decoration: none;
 }
+.goUser{
+  font-weight: 400;
+  font-size: 25px;
+  color: black;
+}
+#goUser{
+  height: 50px;
+  width: auto;
+}
