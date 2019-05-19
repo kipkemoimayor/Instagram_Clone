@@ -17,7 +17,12 @@
         <div class="col-md-8">
           <div class=" idea">
             {%for user in users%}
-            <a>{{user.username}}</a> {%endfor%}<a href="{%url 'edit'%}"> <button type="button" class="btn btn-light">Follow </button></a>
+            <a>{{user.username}}</a> {%endfor%}
+            <form id="follow" class="" action="index.html" method="post">
+              <button type="button" class="btn follow btn-light">Follow </button>
+              <button  type="button" class="btn following btn-info">unfollow </button>
+            </form>
+
 
           </div>
 
@@ -56,7 +61,7 @@
         {%endfor%}
         {%else%}
         <div class="alert">
-          <p class="animated fadeIn alert alert-info">This User has not posted any Pictures <br>
+          <p class="animated fadeIn alert alert-info">This User has not shared any Pictures <br>
         </p>
 
         </div>

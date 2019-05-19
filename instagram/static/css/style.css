@@ -14,12 +14,15 @@
   }
 }
 
-@media screen only and (min-width:1000px) {
+@media screen  and (min-width:1000px) {
 
-  .contain{
+  /* .contain{
     position: relative;
     top: 30px !important;
 
+  } */
+  #navUser{
+    display: none;
   }
 
 }
@@ -320,4 +323,19 @@
   font-size: 10px !important;
   color: red;
   padding: 12px !important;
+}
+#follow{
+  display: inline-block;
+  margin-left: 15px;
+}
+.following{
+  display: none;
+  color: blue;
+}
+.following:hover{
+  color: blue;
+}
+#navbarSupportedContent a{
+  font-size: 20px;
+
 }
