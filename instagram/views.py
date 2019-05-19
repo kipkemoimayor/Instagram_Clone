@@ -23,21 +23,8 @@ def stories(request):
     except Exception as e:
         raise Http404()
 
-    if request.method=='POST':
-        current_user=request.user
-        i=request.POST.get("id","")
-        form=CommentForm(request.POST)
-        if form.is_valid:
-            comments=form.save(commit=False)
-            comments.user=current_user
-            comments.images=i
-            comments.save()
-            return redirect('stories')
-    else:
-        form=CommentForm()
 
-
-    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users,"form":form})
+    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users})
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
@@ -101,3 +88,25 @@ def edit(request):
             form=EditProfile()
 
             return render(request,"edit.html",{"form":form})
+
+def comments(request,image_id):
+    try:
+        image=Image.objects.filter(id=image_id).all()
+        comment=Comments.objects.filter(images=image_id).all()
+    except Exception as e:
+        raise  Http404()
+    if request.method=='POST':
+        current_user=request.user
+        i=request.POST.get("id","")
+        form=CommentForm(request.POST)
+        if form.is_valid:
+            comments=form.save(commit=False)
+            comments.user=current_user
+            comments.images=i
+            comments.save()
+            return redirect('comment',image_id)
+    else:
+        form=CommentForm()
+
+
+    return render(request,"comment.html",{"images":image,'form':form,"comments":comment})

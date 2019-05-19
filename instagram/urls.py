@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.conf.urls.static import static 
+from django.conf.urls.static import static
 from . import views
 from django.conf import settings
 
@@ -9,6 +9,7 @@ urlpatterns=[
     url(r"profile/$",views.profile,name="profile"),
     url(r'profile/upload$',views.uploads,name='uploads'),
     url(r'profile/edit$',views.edit,name='edit'),
+    url(r'stories/comment/(\d+)',views.comments,name='comment'),
 ]
 
 if settings.DEBUG:

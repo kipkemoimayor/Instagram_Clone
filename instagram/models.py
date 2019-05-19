@@ -15,9 +15,6 @@ class Profile(models.Model):
     class Meta:
         ordering=['pic']
 
-class Comments(models.Model):
-    comment=models.CharField(max_length=50)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Image(models.Model):
     image=models.ImageField(upload_to='images/',blank=True)
@@ -27,7 +24,7 @@ class Image(models.Model):
     date=models.DateTimeField(auto_now_add=True)
     userId=models.IntegerField()
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    images=models.ForeignKey(Comments,on_delete=models.CASCADE)
+
 
     def __str__(self):
         return selfself.name
@@ -37,3 +34,8 @@ class Image(models.Model):
 
     class Meta:
         ordering=['image']
+
+class Comments(models.Model):
+    comment=models.TextField(max_length=50)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    images=models.IntegerField()

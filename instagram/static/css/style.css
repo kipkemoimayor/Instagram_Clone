@@ -154,6 +154,11 @@
   box-shadow: none;
   border-bottom: none !important;
 }
+#car{
+  border: 1px solid rgba(0,0,0,0.2) !important;
+  box-shadow: none;
+
+}
 .card-header,.card-footer{
   background-color: #FFFFFF !important;
 }
@@ -173,17 +178,17 @@
     padding: 10px !important;
     position: relative;
     left:570px;
-    top: -47px;
+    top: -64px;
     opacity: 0.6;
   }
 }
 @media screen  and (max-width:360px) {
   #post{
-    display: none;
+
     padding: 10px !important;
     position: relative;
     left:250px;
-    top: -47px;
+    top: -64px;
     opacity: 0.6;
   }
 }
@@ -300,4 +305,14 @@
 }
 #logi a{
   padding-left: 60px;
+}
+.section button{
+  color: black;
+  background-color: #FFFFFF !important;
+  box-shadow: none;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.section button:hover{
+  color: black;
 }

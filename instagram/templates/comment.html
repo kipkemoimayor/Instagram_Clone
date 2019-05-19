@@ -59,10 +59,10 @@
 
        </div>
        <div class="col-md-7 contain">
-         <div class="stay">
+         <div class="">
            <!-- content here-->
            {%for image in images%}
-           <div id="car" class="card">
+           <div id="card" class="card">
              <div class="card-header">
 
               <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt="">
@@ -71,22 +71,25 @@
              </div>
              <div class="card-">
                <div class="">
-                 <a href="/stories/comment/{{image.id}}">
-                 <img class="img-fluid" src="{{image.image.url}}" alt=""></a>
+                 <img class="img-fluid" src="{{image.image.url}}" alt="">
                </div>
 
              </div>
              <div class="card-footer">
-               <p>posted {{image.date}}</p>
-             </div>
-             <div class="section">
-               <a href="/stories/comment/{{image.id}}"><button class="btn btn-info" type="button" name="button">Leave a Comment</button></a>
+
              </div>
 
 
            </div>
-           <br><br>
+           <form class="form-group" action="/stories/comment/{{image.id}}" name='{{image.id}}' method="post">
+             {%csrf_token%}
+             {%bootstrap_form form%}
+             <input type="hidden" name="id" value="{{ image.id }}">
+             <div class="bttn">
+               <button id='post' class="btn btn-info"  type="submit" name="button">Post</button>
+             </div>
 
+           </form>
            {%endfor%}
 
          </div>
@@ -104,12 +107,16 @@
 
          <div id="logi">
 
-             <h1>Suggestions</h1>
-             {%for all in users%}
-             <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt="">
-             <span>{{all.username}}  </span> <a href="#">follow</a><br><br>
+             <h1>Comments</h1>
+             {%if comments%}
+             {%for all in comments%}
+             <span><strong>{{all.user}}</strong> {{all.comment}}  </span><br><br>
              {%endfor%}
-
+             {%else%}
+              <div class="alert">
+                <p class="alert alert-info animated fadeIn">No comments yet <br>Be the 1st to add a comment</p>
+              </div>
+             {%endif%}
                <br>
 
 
@@ -118,7 +125,7 @@
 
          <div class="open">
            <ul class="list-group">
-             <li class="list-group-item">Dont have an account? <a href="#">Sign up here</a></li>
+             <li class="list-group-item">Want to go back home? <a href="{%url 'stories'%}">Home</a></li>
 
            </ul>
 
