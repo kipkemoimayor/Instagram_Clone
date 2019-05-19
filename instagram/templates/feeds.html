@@ -82,7 +82,7 @@
                  <i>{{image.likes}} likes</i>
 
                </div>
-               <p>posted {{image.date}}</p>
+               <p>posted {{image.date|timesince}} ago</p>
              </div>
              <div class="section">
                <a href="/stories/comment/{{image.id}}"><button class="btn btn-info" type="button" name="button">Leave a Comment</button></a>
