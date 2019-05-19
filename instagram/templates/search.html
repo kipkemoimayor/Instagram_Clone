@@ -16,7 +16,7 @@
           {%endif%}
          <div class="searched">
            {%for user in founds%}
-            <p><strong>{{user.user}}'s </strong>Posts <a href="/profile/user/{{user.id}}">Visit profile</a></p>
+            <p><strong>{{user.user}}'s </strong>Posts <a href="/profile/user/{{user.user.id}}">Visit profile</a></p>
             <img class="img-fluid" src="{{user.image.url}}" alt="">
             <p></p>
            {%endfor%}
