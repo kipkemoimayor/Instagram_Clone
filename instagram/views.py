@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostImage,EditProfile,UpdateProfile
-from .models import Image,Profile
+from .forms import PostImage,EditProfile,UpdateProfile,CommentForm
+from .models import Image,Profile,Comments
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -19,9 +19,25 @@ def stories(request):
         profile_image=Profile.objects.all()
         profile=profile_image.reverse()[0:1]
         users=User.objects.all()
+        #comments
     except Exception as e:
         raise Http404()
-    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users})
+
+    if request.method=='POST':
+        current_user=request.user
+        i=request.POST.get("id","")
+        form=CommentForm(request.POST)
+        if form.is_valid:
+            comments=form.save(commit=False)
+            comments.user=current_user
+            comments.images=i
+            comments.save()
+            return redirect('stories')
+    else:
+        form=CommentForm()
+
+
+    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users,"form":form})
 
 @login_required(login_url="/accounts/login/")
 def profile(request):

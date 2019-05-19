@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%load bootstrap4%}
 {%load static%}
 {{block.supper}}
 {%block content%}
@@ -76,13 +77,17 @@
              </div>
              <div class="card-footer">
                comment
-               <p>{{image.comments}}<p>
+               {%for  com in comments%}
+               <p>{{com.user}} {{com.comment}}<p>
+                 {%endfor%}
              </div>
 
 
            </div>
-           <form class="form-group" action="index.html" method="post">
-             <input placeholder="comment...." id="comment" class="form-control" type="text" name="" value="">
+           <form class="form-group" action="{%url 'stories'%}" name='{{image.id}}' method="post">
+             {%csrf_token%}
+             {%bootstrap_form form%}
+             <input type="hidden" name="id" value="{{ image.id }}">
              <div class="bttn">
                <button id='post' class="btn btn-info"  type="submit" name="button">Post</button>
              </div>
@@ -103,7 +108,7 @@
             {%endfor%}
            {{user}}</a>
 
-         <div id="login">
+         <div id="logi">
 
              <h1>Suggestions</h1>
              {%for all in users%}

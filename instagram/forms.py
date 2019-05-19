@@ -1,4 +1,4 @@
-from . models import Image,Profile
+from . models import Image,Profile,Comments
 from django import forms
 
 class PostImage(forms.ModelForm):
@@ -14,3 +14,9 @@ class UpdateProfile(forms.ModelForm):
     class Meta:
         model=Profile
         exclude=['userId']
+
+class CommentForm(forms.ModelForm):
+    # comment=models.CharField(max_length=30)
+    class Meta:
+        model=Comments
+        exclude=['user','images']

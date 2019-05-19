@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     pic=models.ImageField(upload_to='profile/',blank=True)
     bio=models.CharField(max_length=30)
-    userId=models.IntegerField(default=0)
+    userId=models.IntegerField()
 
 
     def __str__(self):
@@ -14,19 +14,26 @@ class Profile(models.Model):
 
     class Meta:
         ordering=['pic']
+
+class Comments(models.Model):
+    comment=models.CharField(max_length=50)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+
 class Image(models.Model):
     image=models.ImageField(upload_to='images/',blank=True)
     name=models.CharField(max_length=30)
     caption=models.CharField(max_length=30)
-
     likes=models.IntegerField(default=0)
-    comments=models.CharField(max_length=200,default="")
     date=models.DateTimeField(auto_now_add=True)
     userId=models.IntegerField()
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+    images=models.ForeignKey(Comments,on_delete=models.CASCADE)
 
     def __str__(self):
         return selfself.name
+    @classmethod
+    def add(cls):
+        pass
 
     class Meta:
         ordering=['image']
