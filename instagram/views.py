@@ -5,6 +5,7 @@ from .forms import PostImage,EditProfile,UpdateProfile,CommentForm,Likes
 from .models import Image,Profile,Comments
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 
 def index(request):
@@ -139,3 +140,15 @@ def other_users(request,user_id):
     except Exception as e:
         raise Http404()
     return render(request,"other.html",{"users":users,'profile':profile_photos,"pic":profile})
+
+
+def search(request):
+    if 'user' in request.GET and request.GET['user']:
+        term=request.GET.get("user")
+        found=Image.search_users(term)
+        message=f'{term}'
+
+        return render(request,'search.html',{'message':message,'founds':found,"term":term})
+    else:
+        message="You did not search any user please input a user name"
+        return render(request,"search.html",{"message":message})

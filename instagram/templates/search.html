@@ -1,0 +1,97 @@
+{%extends 'base.html'%}
+{%load static%}
+{{block.supper}}
+{%block content%}
+{%include 'navbar.html'%}
+
+
+   <div  class="container ">
+     <img src="static/img/svg/in.svg" alt="">
+     <div class="row">
+       <div class="col-md-7 contain">
+         {%if founds%}
+          <p>Marched {{founds|length}} results</p>
+          {%else%}
+          <p class="alert alert-info animated fadeIn">{{term}} Has no photos to share</p>
+          {%endif%}
+         <div class="searched">
+           {%for user in founds%}
+            <p><strong>{{user.user}}'s </strong>Posts <a href="/profile/user/{{user.id}}">Visit profile</a></p>
+            <img class="img-fluid" src="{{user.image.url}}" alt="">
+            <p></p>
+           {%endfor%}
+         </div>
+       </div>
+       <div class="col-md-5 ">
+         <div class="contain">
+
+
+         <div class="login">
+           <form class="form-group" action="" method="post">
+             <h1>Instagram Search</h1>
+
+               <br>
+
+
+             <img src="" alt="">
+             <br><br><br><br>
+           </form>
+
+         </div>
+
+         <div class="open">
+           <ul class="list-group">
+             <li class="list-group-item">Dint find any results? <a href="{%url 'stories'%}">Go back Home</a></li>
+
+           </ul>
+
+         </div>
+
+
+
+
+       </div>
+
+
+
+
+       </div>
+
+     </div>
+     <br><br><br>
+     <div class="row">
+       <div class="col-md-1"></div>
+       <div class="col-md-9">
+         <!-- Footer -->
+            <footer class="bottom">
+              <ul>
+                <li><a href="">ABOUT US</a></li>
+                <li><a href="">SUPPORT</a></li>
+                <li><a href="">PRESS</a></li>
+                <li><a href="">API</a></li>
+                <li><a href="">JOBS</a></li>
+                <li><a href="">PRIVACY</a></li>
+                <li><a href="">LANGUAGE</a></li>
+                <li><a href="">PROFILES</a></li>
+                  <a class="muted"> © Instagram 2019</a>
+              </ul>
+
+
+              <!-- Copyright -->
+
+
+
+              <!-- Copyright -->
+
+            </footer>
+            <!-- Footer -->
+
+       </div>
+       <div class="col-md-1"></div>
+
+
+
+     </div>
+
+   </div>
+{%endblock%}

@@ -32,6 +32,11 @@ class Image(models.Model):
     def add(cls):
         pass
 
+    @classmethod
+    def search_users(cls,term):
+        result=cls.objects.filter(user__username__icontains=term)
+        return result
+
     class Meta:
         ordering=['image']
 
@@ -42,4 +47,3 @@ class Comments(models.Model):
 
 class Followers(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    

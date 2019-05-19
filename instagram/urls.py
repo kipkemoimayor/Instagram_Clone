@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'profile/edit$',views.edit,name='edit'),
     url(r'stories/comment/(\d+)',views.comments,name='comment'),
     url(r'profile/user/(\d+)/$',views.other_users,name='users'),
+    url(r"^search/",views.search,name="search")
 ]
 
 if settings.DEBUG:
