@@ -20,6 +20,7 @@
             <a>{{user}}</a> <a href="{%url 'edit'%}"> <button type="button" class="btn btn-light">Edit Profile</button></a><a id="prompt"<i class="fas fa-cog fa-spin"></i></a>
 
           </div>
+
           {%for i in pic%}
           <p>This is is your status</p>
           <p>{{i.bio}}</p>
@@ -44,7 +45,7 @@
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <div class="row">
-
+        {%if profile%}
         {%for photo in profile%}
         <div class="col-md-6">
           <div class="image">
@@ -53,6 +54,13 @@
           </div>
 
         {%endfor%}
+        {%else%}
+        <div class="alert">
+          <p class="animated fadeIn alert alert-info">You have not posted any Pictures <br>
+          <a href="{%url 'uploads'%}">Get started</a></p>
+
+        </div>
+        {%endif%}
 
       </div>
     </div>
