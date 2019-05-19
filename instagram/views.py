@@ -19,7 +19,7 @@ def stories(request):
         images=Image.objects.all()
         profile_image=Profile.objects.filter(userId=current_user)
         profile=profile_image.reverse()[0:1]
-        users=User.objects.all()
+        users=User.objects.all().exclude(id=request.user.id)
         comments=Comments.objects.all()
         #comments
     except Exception as e:
