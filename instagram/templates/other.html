@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+{{block.supper}}
+{%block content%}
+{%include 'navbar.html'%}
+
+<div  class="container prof">
+  <br><br>
+  <div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4">
+          {%for i in pic%}
+          <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+          {%endfor%}
+        </div>
+        <div class="col-md-8">
+          <div class=" idea">
+            {%for user in users%}
+            <a>{{user.username}}</a> {%endfor%}<a href="{%url 'edit'%}"> <button type="button" class="btn btn-light">Follow </button></a>
+
+          </div>
+
+          {%for i in pic%}
+          <p>Current status</p>
+          <p>{{i.bio}}</p>
+          {%endfor%}
+
+
+
+
+        </div>
+
+      </div>
+      <br>
+      <hr class="info">
+      <div class="tags">
+        <a href="#"><i class="far fa-newspaper"></i> Posts</a><a href="#"><i class="far fa-newspaper"></i> Saved</a>
+      </div>
+     </div>
+    <div class="col-md-1"> </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <div class="row">
+        {%if profile%}
+        {%for photo in profile%}
+        <div class="col-md-6">
+          <div class="image">
+          <img class="img-fluid" src="{{photo.image.url}}" alt="">
+            </div>
+          </div>
+
+        {%endfor%}
+        {%else%}
+        <div class="alert">
+          <p class="animated fadeIn alert alert-info">This User has not posted any Pictures <br>
+        </p>
+
+        </div>
+        {%endif%}
+
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-9">
+      <!-- Footer -->
+         <footer class="bottom">
+           <ul>
+             <li><a href="">ABOUT US</a></li>
+             <li><a href="">SUPPORT</a></li>
+             <li><a href="">PRESS</a></li>
+             <li><a href="">API</a></li>
+             <li><a href="">JOBS</a></li>
+             <li><a href="">PRIVACY</a></li>
+             <li><a href="">LANGUAGE</a></li>
+             <li><a href="">PROFILES</a></li>
+               <a class="muted"> © Instagram 2019</a>
+           </ul>
+
+
+           <!-- Copyright -->
+
+
+
+           <!-- Copyright -->
+
+         </footer>
+         <!-- Footer -->
+
+    </div>
+    <div class="col-md-1"></div>
+
+
+
+  </div>
+
+
+
+</div>
+{%endblock%}

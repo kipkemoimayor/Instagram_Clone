@@ -131,5 +131,11 @@ def comments(request,image_id):
     return render(request,"comment.html",{"images":image,'form':form,"comments":comment,"count":count,"forms":forms})
 
 def other_users(request,user_id):
-    
-    return render(request,"other.html")
+    try:
+        profile_image=Profile.objects.filter(userId=user_id).all()
+        profile=profile_image.reverse()[0:1]
+        profile_photos=Image.objects.filter(userId=user_id)
+        users=User.objects.filter(id=user_id).all()
+    except Exception as e:
+        raise Http404()
+    return render(request,"other.html",{"users":users,'profile':profile_photos,"pic":profile})

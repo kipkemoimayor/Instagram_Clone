@@ -111,7 +111,7 @@
              <h1>Suggestions</h1>
              {%for all in users%}
              <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt="">
-             <span>{{all.username}}  </span> <a href="#">follow</a><br><br>
+             <span>{{all.username}}  </span> <a href="/profile/user/{{all.id}}">View Profile</a><br><br>
              {%endfor%}
 
                <br>
