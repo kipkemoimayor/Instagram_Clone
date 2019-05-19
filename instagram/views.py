@@ -17,7 +17,7 @@ def stories(request):
     try:
         current_user=request.user.id
         images=Image.objects.all()
-        profile_image=Profile.objects.all()
+        profile_image=Profile.objects.filter(userId=current_user)
         profile=profile_image.reverse()[0:1]
         users=User.objects.all()
         comments=Comments.objects.all()
@@ -90,7 +90,7 @@ def edit(request):
             form=EditProfile()
 
             return render(request,"edit.html",{"form":form})
-
+@login_required(login_url='/accounts/login/')
 def comments(request,image_id):
     try:
         image=Image.objects.filter(id=image_id).all()
@@ -130,7 +130,7 @@ def comments(request,image_id):
     else:
         form=CommentForm()
     return render(request,"comment.html",{"images":image,'form':form,"comments":comment,"count":count,"forms":forms})
-
+@login_required(login_url='/accounts/login/')
 def other_users(request,user_id):
     try:
         profile_image=Profile.objects.filter(userId=user_id).all()
