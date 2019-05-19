@@ -40,6 +40,6 @@ class Comments(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     images=models.IntegerField()
 
-# class Likes(models.Model):
-#     user=models.ForeignKey(User,on_delete=models.CASCADE)
-#     image=models.ForeignKey(Image)
+class Followers(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    images=models.ForeignKey(Image)

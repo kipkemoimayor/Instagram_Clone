@@ -129,3 +129,7 @@ def comments(request,image_id):
     else:
         form=CommentForm()
     return render(request,"comment.html",{"images":image,'form':form,"comments":comment,"count":count,"forms":forms})
+
+def other_users(request,user_id):
+    
+    return render(request,"other.html")

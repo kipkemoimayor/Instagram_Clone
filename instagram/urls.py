@@ -10,6 +10,7 @@ urlpatterns=[
     url(r'profile/upload$',views.uploads,name='uploads'),
     url(r'profile/edit$',views.edit,name='edit'),
     url(r'stories/comment/(\d+)',views.comments,name='comment'),
+    url(r'stories/user/(\d+)',views.other_users,name='users'),
 ]
 
 if settings.DEBUG:

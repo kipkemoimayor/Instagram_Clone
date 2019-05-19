@@ -1,4 +1,4 @@
-from . models import Image,Profile,Comments
+from . models import Image,Profile,Comments,Followers
 from django import forms
 
 class PostImage(forms.ModelForm):
@@ -25,3 +25,8 @@ class Likes(forms.ModelForm):
     class Meta:
         model=Image
         exclude=['likes','comments','date','user','userId','profile','image','name','caption']
+
+class FormFollow(forms.ModelForm):
+    class Meta:
+        model=Followers
+        exclude=['user','image']
