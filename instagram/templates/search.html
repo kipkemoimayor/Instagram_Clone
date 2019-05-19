@@ -12,7 +12,7 @@
          {%if founds%}
           <p>Marched {{founds|length}} related  Posts</p>
           {%else%}
-          <p class="alert alert-info animated fadeIn">{{term}} Has no photos to share</p>
+          <p class="alert alert-info animated fadeIn">Either {{term}} Has no photos to share or has no profile !</p>
           {%endif%}
          <div class="searched">
            {%for user in founds%}
