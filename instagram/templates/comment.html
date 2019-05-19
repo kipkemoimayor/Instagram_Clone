@@ -67,7 +67,7 @@
 
               <img class="rounded-circle" height="30px" width="auto" src="/static/img/baby.jpg" alt="">
 
-               <span>{{image.user}}</span>
+               <span>{{image.user}}</span><span style="float:right" class="cap"> {{image.caption}}</span>
              </div>
              <div class="card-">
                <div class="">
@@ -117,7 +117,7 @@
              <h1>Comments</h1>
              {%if comments%}
              {%for all in comments%}
-             <span><strong>{{all.user}}</strong> {{all.comment}}  </span><br><br>
+             <span id="span"><strong>{{all.user}}...</strong></span><span class="font"> {{all.comment}}  </span><br><br>
              {%endfor%}
              {%else%}
               <div class="alert">

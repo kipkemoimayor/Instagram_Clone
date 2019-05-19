@@ -302,7 +302,7 @@
   margin-left: 60px;
   margin: 5px;
 }
-#logi span{
+#span{
   font-weight: 400;
   font-size: 20px;
 }
@@ -338,4 +338,9 @@
 #navbarSupportedContent a{
   font-size: 20px;
 
+}
+.font{
+  font-size: 15px;
+  text-transform: capitalize;
+  
 }
