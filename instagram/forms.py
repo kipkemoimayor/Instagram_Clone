@@ -20,3 +20,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model=Comments
         exclude=['user','images']
+
+class Likes(forms.ModelForm):
+    class Meta:
+        model=Image
+        exclude=['likes','comments','date','user','userId','profile','image','name','caption']

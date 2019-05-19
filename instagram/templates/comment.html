@@ -76,7 +76,14 @@
 
              </div>
              <div class="card-footer">
+               <form class="" action="/stories/comment/{{image.id}}"" method="post">
+                 {%csrf_token%}
+                 {%bootstrap_form forms%}
 
+                 <input type="hidden" name="like" value="1">
+                 <button class="lik btn btn" type="submit" name="button"><i   class="far  fa-heart"></i></button>
+                 {{image.likes}} likes
+               </form>
              </div>
 
 

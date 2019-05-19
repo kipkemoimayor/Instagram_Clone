@@ -316,3 +316,8 @@
 .section button:hover{
   color: black;
 }
+.lik{
+  font-size: 10px !important;
+  color: red;
+  padding: 12px !important;
+}

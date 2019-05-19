@@ -27,7 +27,7 @@ class Image(models.Model):
 
 
     def __str__(self):
-        return selfself.name
+        return self.name
     @classmethod
     def add(cls):
         pass
@@ -39,3 +39,7 @@ class Comments(models.Model):
     comment=models.TextField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     images=models.IntegerField()
+
+# class Likes(models.Model):
+#     user=models.ForeignKey(User,on_delete=models.CASCADE)
+#     image=models.ForeignKey(Image)

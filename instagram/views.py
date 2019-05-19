@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostImage,EditProfile,UpdateProfile,CommentForm
+from .forms import PostImage,EditProfile,UpdateProfile,CommentForm,Likes
 from .models import Image,Profile,Comments
 from django.contrib.auth.models import User
 
@@ -19,12 +19,13 @@ def stories(request):
         profile_image=Profile.objects.all()
         profile=profile_image.reverse()[0:1]
         users=User.objects.all()
+        comments=Comments.objects.all()
         #comments
     except Exception as e:
         raise Http404()
 
 
-    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users})
+    return render(request,'feeds.html',{"images":images,"profile":profile,"users":users,"comments":comments})
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
@@ -95,6 +96,26 @@ def comments(request,image_id):
         comment=Comments.objects.filter(images=image_id).all()
     except Exception as e:
         raise  Http404()
+
+    imag=Image.objects.filter(id=image_id).all()
+    # a=imag[4]
+    count=0
+    for i in imag:
+        count+=i.likes
+
+    if request.method=='POST':
+        form=Likes(request.POST)
+        k=request.POST.get("like","")
+        if k:
+
+            like=int(k)
+            if form.is_valid:
+                likes=form.save(commit=False)
+                all=count+like
+                Image.objects.filter(id=image_id).update(likes=all)
+                return redirect('comment',image_id)
+    else:
+        forms=Likes()
     if request.method=='POST':
         current_user=request.user
         i=request.POST.get("id","")
@@ -107,6 +128,4 @@ def comments(request,image_id):
             return redirect('comment',image_id)
     else:
         form=CommentForm()
-
-
-    return render(request,"comment.html",{"images":image,'form':form,"comments":comment})
+    return render(request,"comment.html",{"images":image,'form':form,"comments":comment,"count":count,"forms":forms})
