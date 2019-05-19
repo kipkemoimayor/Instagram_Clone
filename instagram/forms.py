@@ -29,4 +29,4 @@ class Likes(forms.ModelForm):
 class FormFollow(forms.ModelForm):
     class Meta:
         model=Followers
-        exclude=['user','image']
+        exclude=['user','insta','user_id']

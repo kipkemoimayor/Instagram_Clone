@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import PostImage,EditProfile,UpdateProfile,CommentForm,Likes
-from .models import Image,Profile,Comments
+from .forms import PostImage,EditProfile,UpdateProfile,CommentForm,Likes,FormFollow
+from .models import Image,Profile,Comments,Followers
 from django.contrib.auth.models import User
 
 
@@ -137,9 +137,28 @@ def other_users(request,user_id):
         profile=profile_image.reverse()[0:1]
         profile_photos=Image.objects.filter(userId=user_id)
         users=User.objects.filter(id=user_id).all()
+        follower=Followers.objects.filter(user_id=user_id)
+        all=len(follower)
     except Exception as e:
         raise Http404()
-    return render(request,"other.html",{"users":users,'profile':profile_photos,"pic":profile})
+
+    if request.method=='POST':
+        insta=request.user
+        current=request.POST.get('current','')
+        id=int(current)
+        form=FormFollow(request.POST)
+        if form.is_valid():
+            followers=form.save(commit=False)
+            followers.insta=insta
+            followers.user=request.user.id
+            followers.user_id=id
+
+            followers.save()
+            return redirect('users',user_id)
+
+    else:
+        form=FormFollow()
+    return render(request,"other.html",{"users":users,'profile':profile_photos,"pic":profile,"form":form,"all":all})
 
 
 def search(request):

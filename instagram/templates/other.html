@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {{block.supper}}
+{% load bootstrap4%}
 {%block content%}
 {%include 'navbar.html'%}
 
@@ -15,13 +16,18 @@
           {%endfor%}
         </div>
         <div class="col-md-8">
+
           <div class=" idea">
             {%for user in users%}
-            <a>{{user.username}}</a> {%endfor%}
-            <form id="follow" class="" action="index.html" method="post">
-              <button type="button" class="btn follow btn-light">Follow </button>
-              <button  type="button" class="btn following btn-info">unfollow </button>
+            <a>{{user.username}}</a>
+            <form id="follow" class="form-group" action="/profile/user/{{user.id}}/" method="post">
+              {%csrf_token%}
+              {%bootstrap_form form%}
+              <input type="hidden" name="current" value="{{user.id}}">
+              <button type="submit" class="btn follow btn-light">Follow </button><span id="close">{{all}} Followers</span>
+
             </form>
+            {%endfor%}
 
 
           </div>

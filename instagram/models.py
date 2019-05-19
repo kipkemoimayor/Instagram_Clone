@@ -46,4 +46,6 @@ class Comments(models.Model):
     images=models.IntegerField()
 
 class Followers(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.CharField(max_length=30)
+    insta=models.CharField(default='',max_length=30)
+    user_id=models.IntegerField()

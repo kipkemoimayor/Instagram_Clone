@@ -342,5 +342,12 @@
 .font{
   font-size: 15px;
   text-transform: capitalize;
-  
+
+}
+#close{
+  color: black;
+  background-color: #FFFFFF !important;
+  box-shadow: none;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.2);
 }
